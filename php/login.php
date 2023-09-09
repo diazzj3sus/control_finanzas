@@ -16,8 +16,11 @@
             $sql="SELECT * FROM usuarios WHERE usr_correo = '$correo' AND usr_contraseña = '$clave'";
             $resultado = $dbconnection->query($sql);
 
+
             if($resultado->num_rows > 0){
-                header("location:menu.php");
+                $Iduser = $resultado->fetch_assoc();   
+                $id = $Iduser['usr_id'];
+                header("location:menu.php?IdUser='$id'");
                 $conexion->close_connection();
             }else{
                 echo "<div class='alert alert-danger'>NO SE ENCONTRO UN USUARIO CON LOS DATOS INGRESADOS</div>";
