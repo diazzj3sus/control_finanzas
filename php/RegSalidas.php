@@ -9,9 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/estilologin.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../css/estilomenu.css" media="screen">
-    <title>Registro de Salidas</title>
+    <link rel="stylesheet" type="text/css" href="../css/estiloentsal.css" media="screen">
+    <title>Document</title>
 </head>
-<body>
+<body >
+    
     <form method="POST" action="">
         <header >
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -56,6 +58,7 @@
                     <span class="navbar-text">
                         <?php
                             
+                            /*echo $_SESSION['nombre'];*/
                         ?>
                         <button class="btn btn-outline-light" type="submit" name='salirBt'>SALIR</button>
                     </span>
@@ -63,38 +66,22 @@
             </nav>
         </header>
     </form>
-    
-    <div class="contenedor_login container d-flex flex-column justify-content-center align-items-center ">
-        <form method="POST" action="RegistroSalida.php?IdUser=<?php echo $_GET['IdUser'];?>" enctype="multipart/form-data">
-            <div class="text-center">
-                <img src="../img/control_finanzas.jpg" class="rounded imagen" alt="...">
-            </div>
-            <h1 class="text-center text1">Registro de Salidas</h1>
 
+    <div class="contenedor container d-flex flex-column justify-content-center align-items-center ">
+    <br><h2 class="text-center text1">REGISTROS DE SALIDAS</h2><br>
+        <br>
+        <table class="table table-dark table-striped">
+            <tr>
+                <td>TIPO ENTRADA</td>
+                <td>MONTO</td>
+                <td>FECHA REGISTRO</td>
+                <td>FACTURA</td>
+            </tr>
+            <?php
+                include ("recuperaSalidas.php");
+            ?>
+        </table>
 
-            <div class="mb-3">
-                <label for="IdTipoSalida" class="form-label" >Tipo de salida</label>
-                <input name="TipoSalida"  class="form-control" id="IdTipoSalida" aria-describedby="emailHelp" >
-            </div>
-            <div class="mb-3">
-                <label for="IdMonto" class="form-label" >Monto</label>
-                <input name="Monto"  class="form-control" id="IdMonto" aria-describedby="emailHelp" >
-            </div>
-            <div class="mb-3">
-                
-                <input type="date"  class="form-control text-center" id="IdFecha" name="Fecha" value="2023-09-09" min="2023-09-09" max="2028-09-09" />
-            </div>
- 
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-        Ingresa la factura:
-        <input type="file" name="image"/>
-        <div><label for="espa" class="form-label"></label></div>
-        <div class="text-center">
-                <button name="submit" type="submit" class="btn btn-lg btn_enviar">Registrar Salida</button>
-            </div> 
-    </form>
-            <br>
-        </form>
     </div>
 </body>
 </html>

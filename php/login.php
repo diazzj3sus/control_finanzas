@@ -18,10 +18,15 @@
 
 
             if($resultado->num_rows > 0){
-                $Iduser = $resultado->fetch_assoc();   
-                $id = $Iduser['usr_id'];
-                header("location:menu.php?IdUser='$id'");
-                $conexion->close_connection();
+                $Iduser = $resultado->fetch_assoc();
+                
+                $IdUser = $Iduser['usr_id'];
+                /*
+                $nombre = $Iduser['usr_nombre'].' '. $Iduser['usr_primer_apellido'].' '. $Iduser['usr_segundo_apellido'];
+                */
+                $_SESSION['nombre'] = $Iduser['usr_nombre'].' '. $Iduser['usr_primer_apellido'].' '. $Iduser['usr_segundo_apellido'];;
+                header("location:menu.php?IdUser=$IdUser");
+                $conexion->close_connection($dbconnection);
             }else{
                 echo "<div class='alert alert-danger'>NO SE ENCONTRO UN USUARIO CON LOS DATOS INGRESADOS</div>";
             }
