@@ -72,7 +72,7 @@
         <br>
         <table class="table table-dark table-striped">
             <tr>
-                <td>TIPO ENTRADA</td>
+                <td>TIPO SALIDA</td>
                 <td>MONTO</td>
                 <td>FECHA REGISTRO</td>
                 <td>FACTURA</td>

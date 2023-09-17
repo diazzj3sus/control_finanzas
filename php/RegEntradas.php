@@ -81,7 +81,7 @@
                 include ("recuperaEntradas.php");
             ?>
         </table>
-
+        
     </div>
 </body>
 </html>
