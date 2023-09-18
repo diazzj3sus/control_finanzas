@@ -9,7 +9,7 @@
     }elseif(isset($_POST["VerSalidasBt"])){
         header("location:RegSalidas.php?IdUser=$id");
     }elseif(isset($_POST["VerBalanceBt"])){
-        header("location:PagResitroSalida.php?IdUser=$id");
+        header("location:PagBalance.php?IdUser=$id");
     }elseif(isset($_POST["salirBt"])){
         header("location:index.php?IdUser=$id");
     }elseif(isset($_POST["menuBt"])){
