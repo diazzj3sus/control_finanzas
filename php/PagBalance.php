@@ -12,7 +12,14 @@ include("direccionamientoMenu.php");
     <link rel="stylesheet" type="text/css" href="../css/estilologin.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../css/estilomenu.css" media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <title>Registro de Entradas</title>
+    <style>
+        @media print {
+            .noprint {
+                visibility: hidden;
+            }
+        }
+    </style>
+    <title>Balance</title>
 </head>
 
 <body>
@@ -175,21 +182,24 @@ include("direccionamientoMenu.php");
             <?php echo "Balance mensual: $" . $sumRsa + $sumRen ?>
         </p>
         <canvas id="balancePieChart"></canvas>
+        <br>
+        <button id="printButton" type="button" class="noprint btn btn-primary mb-3">Imprimir</button>
         <script>
             // Datos del gráfico
             var sumRsa = <?php echo $sumRsa; ?>;
             var sumRen = <?php echo $sumRen; ?>;
+            var total = sumRsa + sumRen;
 
-            // Obtén el elemento canvas
+            // Obtener el elemento canvas
             var canvas = document.getElementById('balancePieChart').getContext('2d');
 
-            // Crea el gráfico de pastel
+            // Crear el gráfico de pastel
             var chart = new Chart(canvas, {
                 type: 'pie',
                 data: {
                     labels: ["Entradas", "Salidas"],
                     datasets: [{
-                        data: [sumRen, sumRsa],
+                        data: [sumRen / total * 100, sumRsa / total * 100],
                         backgroundColor: ['green', 'blue'], // Colores de las porciones
                     }]
                 },
@@ -197,6 +207,9 @@ include("direccionamientoMenu.php");
                     responsive: false
                 }
             });
+
+            // Agrega un evento click al botón de impresión
+            document.getElementById("printButton").addEventListener("click", () => window.print());
         </script>
     </div>
 </body>
