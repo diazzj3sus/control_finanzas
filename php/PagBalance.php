@@ -25,7 +25,7 @@ include("direccionamientoMenu.php");
 <body>
     <form method="POST" action="">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark noprint">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         <button name="menuBt" type="submit" class="btn btn-lg bg-dark btn_submenunombre">
