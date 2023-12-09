@@ -1,0 +1,46 @@
+.facturas_entradas{
+    width: 60%;
+}
+td{
+    width: 25%;
+    text-align: center;
+}
+
+/* Estilo para la imagen pequeña */
+.imagen-pequena {
+    cursor: pointer;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Estilo para la imagen en el modal */
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5%;
+}
+
+/* Mostrar el modal cuando el enlace es :target */
+.modal:target {
+    display: block;
+}
+
+/* Estilo para el enlace de cierre */
+.cerrar-enlace {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}

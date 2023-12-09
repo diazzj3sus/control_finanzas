@@ -1,0 +1,32 @@
+body{
+    background-color: #EEEEEE;
+}
+.imagen{
+    margin-top: 10%;
+    width: 350px;
+    height: 200px;
+}
+.contenedor_login{
+    margin-top: 4%;
+    background-color: white;
+    width: 600px;
+    text-align: center;
+    border-radius: 1%;
+    position: relative;
+}
+.btn_enviar{
+    margin-bottom: 5%;
+    background-color: #053B50;
+    color: #EEEEEE;
+}
+.btn_enviar:hover{
+    background-color: #176B87;
+    border-color: #176B87;
+    color: #EEEEEE;
+}
+.text1{
+    color: #053B50;
+}
+.text2{
+    color: #053B50;
+}
