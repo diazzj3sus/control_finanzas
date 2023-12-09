@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/estilologin.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../css/estilomenu.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../css/estiloentsal.css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body >
@@ -52,7 +54,6 @@
                                     Mostrar balance
                                 </button>
                             </li>
-
                             <li class="nav-item">
                                 <button name="RecupCupones" type="submit" class="btn btn-lg bg-dark btn_submenu">
                                     Cupones
@@ -63,6 +64,7 @@
                     <span class="navbar-text">
                         <?php
                             
+                            /*echo $_SESSION['nombre'];*/
                         ?>
                         <button class="btn btn-outline-light" type="submit" name='salirBt'>SALIR</button>
                     </span>
@@ -71,50 +73,71 @@
         </header>
     </form>
 
-    <div class="contenedor_login container d-flex flex-column justify-content-center align-items-center ">
-        <form method="POST" action="">
-            <div class="text-center">
-                <img src="../img/control_finanzas.jpg" class="rounded imagen" alt="...">
-            </div>
+    <div class="contenedor container d-flex flex-column justify-content-center align-items-center ">
+        <br><h2 class="text-center text1">CUPONES</h2><br>
+        <br>
+        <table class="table table-dark table-striped">
+            <tr>
+                <td>DESCRIPCION</td>
+                <td>MONTO REBAJA</td>
+                <td>FECHA INICIO</td>
+                <td>FECHA FINAL</td>
+            </tr>
+            <?php
+                include ("RecupCupones.php");
+            ?>
+        </table>
 
-            <h3 class="text-center text1">CONTROL DE FINANZAS</h3>
-            <h4 class="text-center text2">MENÚ</h4><br>
-            
-            <div class="container text-center bg-light">
-                <div class="row g-3">
-                    <div class="col-6">
-                        <button name="RegistrarEntradaBt" type="submit" class="btn btn-lg btn_menu">
-                            Registrar entrada
-                        </button>
-                    </div>
+        <div class="contenedor">
 
-                    <div class="col-6">
-                        <button name="RegistrarSalidaBt" type="submit" class="btn btn-lg btn_menu">
-                            Registrar salida
-                        </button>
-                    </div>
 
-                    <div class="col-6">
-                        <button name="VerEntradasBt" type="submit" class="btn btn-lg btn_menu">
-                            Ver entradas
-                        </button>
-                    </div>
 
-                    <div class="col-6">
-                        <button name="VerSalidasBt" type="submit" class="btn btn-lg btn_menu">
-                            Ver salidas
-                        </button>
-                    </div>
-                    
-                    <div class="col-12">
-                        <button name="VerBalanceBt" type="submit" class="btn btn-lg btn_menu">
-                            Mostrar balance
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </form>
+        <br><h2 class="text-center text1"></h2><br>
+        <br><h2 class="text-center text1">Apartado de pago</h2><br>
+
+
+
+		<!-- Formulario -->
+		<form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+			<div class="grupo">
+				<label for="inputNumero">Número Tarjeta</label>
+				<input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+			</div>
+			<div class="grupo">
+				<label for="inputNombre">Nombre</label>
+				<input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+			</div>
+			<div class="flexbox">
+				<div class="grupo expira">
+					<label for="selectMes">Expiracion</label>
+					<div class="flexbox">
+						<div class="grupo-select">
+							<select name="mes" id="selectMes">
+								<option disabled selected>Mes</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+						<div class="grupo-select">
+							<select name="year" id="selectYear">
+								<option disabled selected>Año</option>
+							</select>
+							<i class="fas fa-angle-down"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="grupo ccv">
+					<label for="inputCCV">CCV</label>
+					<input type="text" id="inputCCV" maxlength="3">
+				</div>
+			</div>
+			<button type="submit" class="btn-enviar">Enviar</button>
+		</form>
+	</div>
+
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+        
     </div>
 </body>
 </html>
