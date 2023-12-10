@@ -10,6 +10,8 @@
         header("location:RegSalidas.php?IdUser=$id");
     }elseif(isset($_POST["VerBalanceBt"])){
         header("location:PagResitroSalida.php?IdUser=$id");
+    }elseif(isset($_POST["RecupCupones"])){
+        header("location:Cupones.php?IdUser=$id");
     }elseif(isset($_POST["salirBt"])){
         header("location:index.php?IdUser=$id");
     }elseif(isset($_POST["menuBt"])){
